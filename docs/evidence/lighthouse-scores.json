@@ -1,0 +1,26 @@
+[
+  {
+    "pathname": "/",
+    "measuredAt": "2026-10-27T07:22:20.184Z",
+    "mode": "mobile (default simulated throttling)",
+    "lighthouseVersion": "12.6.1",
+    "scores": {
+      "performance": 85,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    }
+  },
+  {
+    "pathname": "/deadlines/1",
+    "measuredAt": "2026-10-27T07:22:31.435Z",
+    "mode": "mobile (default simulated throttling)",
+    "lighthouseVersion": "12.6.1",
+    "scores": {
+      "performance": 80,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    }
+  }
+]

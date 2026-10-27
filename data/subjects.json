@@ -1,0 +1,6 @@
+[
+  { "slug": "lap-trinh-web-nang-cao", "name": "Lập trình Web nâng cao", "shortName": "Web nâng cao", "code": "INT1434", "lecturer": "Nguyễn Minh Tuấn", "description": "Xây dựng ứng dụng web với Next.js: rendering, routing, xác thực và tối ưu trải nghiệm." },
+  { "slug": "co-so-du-lieu", "name": "Cơ sở dữ liệu", "shortName": "Cơ sở dữ liệu", "code": "INT1313", "lecturer": "Trần Thu Hà", "description": "Thiết kế mô hình dữ liệu, truy vấn SQL và quản lý dữ liệu nhất quán." },
+  { "slug": "cong-nghe-phan-mem", "name": "Công nghệ phần mềm", "shortName": "Công nghệ phần mềm", "code": "INT1340", "lecturer": "Lê Hoàng Nam", "description": "Từ phân tích yêu cầu đến thiết kế, kiểm thử và bàn giao một sản phẩm phần mềm." },
+  { "slug": "mang-may-tinh", "name": "Mạng máy tính", "shortName": "Mạng máy tính", "code": "INT1336", "lecturer": "Phạm Đức Anh", "description": "Giao thức mạng, định tuyến và thực hành kết nối các hệ thống máy tính." }
+]

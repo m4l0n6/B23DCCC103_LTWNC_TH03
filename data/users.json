@@ -1,0 +1,18 @@
+[
+  {
+    "id": "admin-1",
+    "name": "Lớp trưởng",
+    "email": "admin@ptit.edu.vn",
+    "role": "admin",
+    "salt": "b7d130e11b9d199aa9494cc0545bc89c",
+    "passwordHash": "bd40ce9d9096e69357e1c8b2165091cc8f6132284ea612ebba0140838c437cad0d964393420b3a63fa9d71b947615f2def0a863f66eea1d22f194cae4b551c08"
+  },
+  {
+    "id": "student-1",
+    "name": "Sinh viên",
+    "email": "sv@ptit.edu.vn",
+    "role": "user",
+    "salt": "2ac6bda1ece5effe7a5d6530fa612196",
+    "passwordHash": "a176a8940bc75f3b5995c6144b8348852a0a630b4c40b84a39390144513acc2f9f102fcdfeeecbd1cfa1e575d867f4678f244532502a867ee77afbfe4c531a16"
+  }
+]

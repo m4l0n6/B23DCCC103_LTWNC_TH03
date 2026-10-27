@@ -1,0 +1,57 @@
+
+> class-deadline@0.0.1 prebuild
+> node scripts/setup.js
+
+Dữ liệu và cấu hình đã sẵn sàng. Không ghi đè các tệp đã tồn tại.
+
+> class-deadline@0.0.1 build
+> next build
+
+▲ Next.js 16.4.2 (Turbopack)
+- Environments: .env.local
+✓ Running next.config.ts took 54ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 4.0s
+  Running TypeScript ...
+  Finished TypeScript in 7.2s ...
+  Collecting page data using 7 workers ...
+  Generating static pages using 7 workers (0/26) ...
+  Generating static pages using 7 workers (6/26) 
+  Generating static pages using 7 workers (12/26) 
+  Generating static pages using 7 workers (19/26) 
+✓ Generating static pages using 7 workers (26/26) in 4.3s
+  Finalizing page optimization ...
+
+Route (app)                             Revalidate  Expire
+┌ ○ /
+├ ○ /_not-found
+├ ○ /403
+├ ƒ /admin
+├ ƒ /api/auth/[...nextauth]
+├ ƒ /dashboard
+├ ƒ /dashboard/completed
+├ ○ /deadlines                                  1m      1y
+├   /deadlines/[id]
+│ ├ ● /deadlines/6
+│ ├ ● /deadlines/4
+│ ├ ● /deadlines/2
+│ └ ● [+9 more paths]
+├ ƒ /deadlines/[id]/opengraph-image
+├ ƒ /login
+├ ○ /opengraph-image
+├ ○ /robots.txt
+├ ○ /sitemap.xml                                1m      1y
+└   /subjects/[slug]
+  ├ ● /subjects/lap-trinh-web-nang-cao
+  ├ ● /subjects/co-so-du-lieu
+  ├ ● /subjects/cong-nghe-phan-mem
+  └ ● /subjects/mang-may-tinh
+
+
+ƒ Proxy (Middleware)
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand
+

@@ -1,0 +1,127 @@
+{
+  "deadlines": [
+    {
+      "id": "1",
+      "subjectSlug": "lap-trinh-web-nang-cao",
+      "title": "BTTH 3 · Class Deadline",
+      "description": "Xây dựng cổng deadline của lớp bằng Next.js. Hoàn thiện SSG, ISR, SSR, Auth.js, phân quyền và SEO. Nộp mã nguồn kèm README, kết quả build và Lighthouse.",
+      "dueAt": "2026-10-30T23:59:00+07:00",
+      "priority": "high",
+      "submissionUrl": "",
+      "createdAt": "2026-10-20T08:00:00+07:00"
+    },
+    {
+      "id": "2",
+      "subjectSlug": "co-so-du-lieu",
+      "title": "Bài tập truy vấn SQL nâng cao",
+      "description": "Hoàn thành các truy vấn JOIN, GROUP BY và truy vấn lồng trên bộ dữ liệu quản lý đào tạo. Nộp file SQL và ảnh chụp kết quả thực thi.",
+      "dueAt": "2026-10-28T23:59:00+07:00",
+      "priority": "high",
+      "submissionUrl": "",
+      "createdAt": "2026-10-20T08:00:00+07:00"
+    },
+    {
+      "id": "3",
+      "subjectSlug": "cong-nghe-phan-mem",
+      "title": "Đặc tả yêu cầu phần mềm",
+      "description": "Phân tích các tác nhân và ca sử dụng của đề tài nhóm. Nộp tài liệu SRS, sơ đồ use case và mô tả luồng chính, luồng ngoại lệ.",
+      "dueAt": "2026-10-29T17:00:00+07:00",
+      "priority": "normal",
+      "submissionUrl": "",
+      "createdAt": "2026-10-20T08:00:00+07:00"
+    },
+    {
+      "id": "4",
+      "subjectSlug": "mang-may-tinh",
+      "title": "Thực hành cấu hình mạng LAN",
+      "description": "Thiết kế mạng LAN cho ba phòng thực hành. Cấu hình địa chỉ IP, kiểm tra kết nối và giải thích kết quả ping trong báo cáo.",
+      "dueAt": "2026-10-25T23:59:00+07:00",
+      "priority": "normal",
+      "submissionUrl": "",
+      "createdAt": "2026-10-20T08:00:00+07:00"
+    },
+    {
+      "id": "5",
+      "subjectSlug": "lap-trinh-web-nang-cao",
+      "title": "Báo cáo tối ưu hiệu năng web",
+      "description": "Đo Lighthouse trên bản production. Phân tích các chỉ số hiệu năng, accessibility, SEO và đề xuất cải thiện dựa trên số đo.",
+      "dueAt": "2026-11-03T23:59:00+07:00",
+      "priority": "normal",
+      "submissionUrl": "",
+      "createdAt": "2026-10-20T08:00:00+07:00"
+    },
+    {
+      "id": "6",
+      "subjectSlug": "co-so-du-lieu",
+      "title": "Thiết kế mô hình quan hệ",
+      "description": "Chuyển mô hình ER sang lược đồ quan hệ. Xác định khóa chính, khóa ngoại và chuẩn hóa các quan hệ đến dạng chuẩn 3NF.",
+      "dueAt": "2026-10-23T23:59:00+07:00",
+      "priority": "normal",
+      "submissionUrl": "",
+      "createdAt": "2026-10-20T08:00:00+07:00"
+    },
+    {
+      "id": "7",
+      "subjectSlug": "cong-nghe-phan-mem",
+      "title": "Thiết kế kiến trúc hệ thống",
+      "description": "Mô tả các module, trách nhiệm và giao tiếp trong hệ thống. Chuẩn bị sơ đồ kiến trúc và giải thích lựa chọn thiết kế của nhóm.",
+      "dueAt": "2026-11-05T17:00:00+07:00",
+      "priority": "high",
+      "submissionUrl": "",
+      "createdAt": "2026-10-20T08:00:00+07:00"
+    },
+    {
+      "id": "8",
+      "subjectSlug": "mang-may-tinh",
+      "title": "Bài tập chia subnet",
+      "description": "Chia dải địa chỉ theo số lượng host của từng phòng ban bằng VLSM. Trình bày network, broadcast và khoảng địa chỉ sử dụng được.",
+      "dueAt": "2026-11-01T23:59:00+07:00",
+      "priority": "normal",
+      "submissionUrl": "",
+      "createdAt": "2026-10-20T08:00:00+07:00"
+    },
+    {
+      "id": "9",
+      "subjectSlug": "lap-trinh-web-nang-cao",
+      "title": "Demo cuối kỳ ứng dụng web",
+      "description": "Chuẩn bị bản demo hoàn chỉnh cùng slide trình bày kiến trúc. Mỗi thành viên giải thích phần phụ trách và thực hiện một luồng chức năng.",
+      "dueAt": "2026-11-12T09:00:00+07:00",
+      "priority": "high",
+      "submissionUrl": "",
+      "createdAt": "2026-10-20T08:00:00+07:00"
+    },
+    {
+      "id": "10",
+      "subjectSlug": "co-so-du-lieu",
+      "title": "Thực hành transaction và index",
+      "description": "Thực hành transaction, rollback và isolation. So sánh kế hoạch thực thi truy vấn trước và sau khi tạo index.",
+      "dueAt": "2026-11-08T23:59:00+07:00",
+      "priority": "normal",
+      "submissionUrl": "",
+      "createdAt": "2026-10-20T08:00:00+07:00"
+    },
+    {
+      "id": "11",
+      "subjectSlug": "cong-nghe-phan-mem",
+      "title": "Kế hoạch kiểm thử phần mềm",
+      "description": "Lập kế hoạch kiểm thử cho các luồng quan trọng. Viết test case gồm dữ liệu đầu vào, bước thực hiện và kết quả mong đợi.",
+      "dueAt": "2026-11-10T17:00:00+07:00",
+      "priority": "normal",
+      "submissionUrl": "",
+      "createdAt": "2026-10-20T08:00:00+07:00"
+    },
+    {
+      "id": "12",
+      "subjectSlug": "mang-may-tinh",
+      "title": "Báo cáo giao thức HTTP và DNS",
+      "description": "Dùng Wireshark quan sát quá trình phân giải DNS và trao đổi HTTP. Chụp các gói tin tiêu biểu và giải thích trường thông tin chính.",
+      "dueAt": "2026-11-15T23:59:00+07:00",
+      "priority": "normal",
+      "submissionUrl": "",
+      "createdAt": "2026-10-20T08:00:00+07:00"
+    }
+  ],
+  "completions": [],
+  "nextId": 20,
+  "inProgress": []
+}

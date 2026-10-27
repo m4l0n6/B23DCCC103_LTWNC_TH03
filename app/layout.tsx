@@ -1,17 +1,32 @@
-import { Geist, Geist_Mono, Inter, Outfit } from "next/font/google"
-
+import type { Metadata } from "next"
+import { Inter } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { cn } from "@/lib/utils";
+import { TooltipProvider } from "@/components/ui/tooltip"
+import { siteUrl } from "@/lib/site"
 
-const outfitHeading = Outfit({subsets:['latin'],variable:'--font-heading'});
-
-const inter = Inter({subsets:['latin'],variable:'--font-sans'})
-
-const fontMono = Geist_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
+const inter = Inter({
+  subsets: ["latin", "vietnamese"],
+  variable: "--font-inter",
+  display: "swap",
 })
+
+export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Class Deadline · Deadline của lớp",
+    template: "%s | Class Deadline",
+  },
+  description:
+    "Một nơi cho mọi deadline của lớp. Xem bài tập theo môn, nắm hạn nộp và theo dõi tiến độ học tập của bạn.",
+  openGraph: {
+    type: "website",
+    locale: "vi_VN",
+    siteName: "Class Deadline",
+    images: ["/opengraph-image"],
+  },
+  twitter: { card: "summary_large_image" },
+}
 
 export default function RootLayout({
   children,
@@ -20,12 +35,14 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="vi"
       suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, "font-sans", inter.variable, outfitHeading.variable)}
+      className={`${inter.variable} antialiased`}
     >
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <TooltipProvider>{children}</TooltipProvider>
+        </ThemeProvider>
       </body>
     </html>
   )
