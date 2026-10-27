@@ -20,7 +20,7 @@ Nếu đã có `.env.local` hợp lệ thì giữ nguyên, không cần tạo l�
 npm run dev
 ```
 
-Mở http://localhost:3000. Bộ dữ liệu thực hành và hai tài khoản đã có trong `data/subjects.json`, `data/store.json`, `data/users.json`; cần giữ các file này khi sao chép hoặc nộp dự án. Mật khẩu lưu dưới dạng hash scrypt với salt riêng. Khi không đặt token Blob, local đọc/ghi `data/store.json`. Khi có token, dữ liệu ghi vào Private Blob; nếu blob chưa tồn tại, ứng dụng tạo lần đầu từ `data/store.json` và không ghi đè blob đã có.
+Mở http://localhost:3000. Bộ dữ liệu thực hành và hai tài khoản đã có trong `data/subjects.json`, `data/store.json`, `data/users.json`; cần giữ các file này khi sao chép hoặc nộp dự án. Mật khẩu lưu dưới dạng hash scrypt với salt riêng. Khi không đặt `BLOB_STORE_ID` hoặc `BLOB_READ_WRITE_TOKEN`, local đọc/ghi `data/store.json`. Khi có cấu hình Blob, dữ liệu ghi vào Private Blob; nếu blob chưa tồn tại, ứng dụng tạo lần đầu từ `data/store.json` và không ghi đè blob đã có.
 
 Chạy production (lệnh build dùng Webpack để tránh lỗi Turbopack đã gặp trên Windows):
 
@@ -46,7 +46,8 @@ Các biến môi trường được mô tả trong `.env.example`:
 | `AUTH_URL` | Địa chỉ ứng dụng dùng cho xác thực, mặc định `http://localhost:3000`. |
 | `SITE_URL` | Địa chỉ chuẩn để tạo canonical, sitemap và URL chia sẻ. |
 | `AUTH_GITHUB_ID`, `AUTH_GITHUB_SECRET` | Client ID/Secret của GitHub OAuth App, tùy chọn. |
-| `BLOB_READ_WRITE_TOKEN` | Token của **Private Blob Store**. Bắt buộc trên Vercel; để trống khi muốn local dùng file JSON. |
+| `BLOB_STORE_ID` | Vercel tự thêm khi Connect Private Blob Store với project; SDK dùng OIDC được Vercel quản lý. |
+| `BLOB_READ_WRITE_TOKEN` | Cách xác thực thay thế nếu không dùng OIDC; không bắt buộc khi đã Connect bằng OIDC. |
 | `BLOB_STORE_PATH` | Đường dẫn JSON trong Blob, mặc định `class-deadline/store.json`. Dùng đường dẫn khác cho Preview để tách dữ liệu. |
 
 Không đưa `.env.local` hoặc Client Secret vào Git. Khi tạo `.env.local` từ mẫu, phải thay `AUTH_SECRET` mẫu bằng secret ngẫu nhiên.
@@ -167,23 +168,23 @@ Lighthouse đã được đo trên `next build` + `next start`, chế độ mobi
 
 1. Đẩy mã nguồn lên GitHub, gồm `data/`, `assets/`, `package.json` và `package-lock.json`. Không đẩy `.env.local`, `node_modules/`, `.next/` hoặc token.
 2. Trong Vercel, **Add New → Project**, import repository, chọn framework **Next.js**, Node.js **22.x**, Install Command `npm ci`, Build Command `npm run build` và Output Directory mặc định.
-3. Tạo **Private Blob Store** tại mục **Storage** rồi kết nối với project. Bảo đảm biến `BLOB_READ_WRITE_TOKEN` được cấp cho môi trường Production. Nếu tạo token có tiền tố tên riêng, thêm biến đúng tên `BLOB_READ_WRITE_TOKEN` trỏ tới token đó.
+3. Tạo **Private Blob Store** tại mục **Storage → Projects → Connect to Project**, chọn project và môi trường Production. Vercel tự thêm `BLOB_STORE_ID` và cấp quyền qua OIDC; **không cần tạo hoặc sao chép `BLOB_READ_WRITE_TOKEN`**. SDK tự nhận và làm mới thông tin xác thực. Sau khi Connect cần redeploy để deployment nhận cấu hình mới.
 4. Trong **Settings → Environment Variables**, đặt các biến dưới đây. Lấy tên miền production thực tế từ mục **Domains** của project.
 
    | Biến | Giá trị trên Vercel |
    | --- | --- |
-   | `BLOB_READ_WRITE_TOKEN` | Token từ Private Blob Store vừa kết nối. |
+   | `BLOB_STORE_ID` | Vercel tự thêm khi Connect store, không cần nhập token thủ công. |
    | `AUTH_SECRET` | Secret ngẫu nhiên sinh theo hướng dẫn chạy dự án; giữ ổn định giữa các lần deploy. |
    | `AUTH_URL` | `https://<tên-miền-production>` |
    | `SITE_URL` | `https://<tên-miền-production>` |
    | `BLOB_STORE_PATH` | `class-deadline/store.json`, có thể bỏ qua để dùng mặc định. |
 
-5. **Deploy/Redeploy** sau khi cấu hình xong. Nếu lần deploy đầu chạy trước khi kết nối Blob, build sẽ báo thiếu token; cấu hình đủ rồi redeploy. Không cần tải `store.json` thủ công: khi blob chưa tồn tại, ứng dụng tạo từ dữ liệu kèm mã nguồn. Deploy lại sẽ tiếp tục đọc blob hiện có, không khôi phục đè dữ liệu từ Git.
+5. **Deploy/Redeploy** sau khi cấu hình xong. Nếu lần deploy đầu chạy trước khi kết nối Blob, build sẽ báo thiếu cấu hình Blob; Connect đủ môi trường rồi redeploy. Không cần tải `store.json` thủ công: khi blob chưa tồn tại, ứng dụng tạo từ dữ liệu kèm mã nguồn. Deploy lại sẽ tiếp tục đọc blob hiện có, không khôi phục đè dữ liệu từ Git.
 6. Kiểm tra trên domain thật: đăng nhập admin, tạo một deadline, reload, xóa deadline; đăng nhập sinh viên, hoàn thành rồi reload và hoàn tác. Xác nhận file `class-deadline/store.json` xuất hiện trong Private Blob Store.
 
 Với **Preview**, dùng Blob Store riêng hoặc đặt `BLOB_STORE_PATH=class-deadline/preview-store.json` trong phạm vi Preview để không thay đổi dữ liệu Production. Dùng `AUTH_URL` và `SITE_URL` phù hợp với URL của môi trường đang chạy.
 
-Nếu muốn thử Blob ở local, điền token vào `.env.local` và đặt đường dẫn riêng như `BLOB_STORE_PATH=class-deadline/local-store.json`, rồi khởi động lại server. Khi token có mặt, local cũng dùng Blob, không ghi `data/store.json`.
+Nếu muốn thử Blob ở local qua OIDC, kết nối cả môi trường Development rồi dùng Vercel CLI: `vercel link`, `vercel env pull .env.local`. Giữ cấu hình local mong muốn khi đồng bộ biến môi trường. Đặt đường dẫn riêng như `BLOB_STORE_PATH=class-deadline/local-store.json`, rồi khởi động lại server. Có thể dùng `BLOB_READ_WRITE_TOKEN` thay thế nếu không dùng OIDC. Khi có cấu hình Blob, local cũng dùng Blob, không ghi `data/store.json`. Không tự sao chép `VERCEL_OIDC_TOKEN` vào code hoặc truyền trực tiếp cho SDK; để SDK quản lý vòng đời token.
 
 ### GitHub OAuth trên domain đã deploy
 

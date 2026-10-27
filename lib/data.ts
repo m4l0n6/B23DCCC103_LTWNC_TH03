@@ -11,10 +11,11 @@ const storePath = path.join(dataDirectory, "store.json")
 const blobPath = process.env.BLOB_STORE_PATH || "class-deadline/store.json"
 
 function usesBlob() {
-  if (process.env.BLOB_READ_WRITE_TOKEN) return true
+  // The SDK resolves and refreshes OIDC credentials for connected Vercel projects.
+  if (process.env.BLOB_STORE_ID || process.env.BLOB_READ_WRITE_TOKEN) return true
   if (process.env.VERCEL === "1")
     throw new Error(
-      "Hãy kết nối Private Blob Store và cấu hình BLOB_READ_WRITE_TOKEN trên Vercel."
+      "Hãy kết nối Private Blob Store với project Vercel (BLOB_STORE_ID), hoặc cấu hình BLOB_READ_WRITE_TOKEN."
     )
   return false
 }
